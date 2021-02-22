@@ -1,8 +1,8 @@
 import org.apache.log4j.Logger;
 
 public class CustomThreadExtendingThreadClass extends Thread {
-    private int value;
     private static final Logger LOGGER = Logger.getLogger(CustomThreadExtendingThreadClass.class);
+    private int value;
 
     @Override
     public void run() {
