@@ -5,7 +5,7 @@ import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveTask;
 
 public class CustomForkJoinThread extends RecursiveTask<Integer> {
-    private static final int THRESHOLD = 100;
+    private static final int THRESHOLD = 100000;
     private final List<Integer> counter;
 
     public CustomForkJoinThread(List<Integer> counter) {
@@ -19,9 +19,8 @@ public class CustomForkJoinThread extends RecursiveTask<Integer> {
                     .stream()
                     .mapToInt(ForkJoinTask::join)
                     .sum();
-        } else {
-            return processing(counter);
         }
+        return processing(counter);
     }
 
     private Collection<CustomForkJoinThread> createSubtasks() {

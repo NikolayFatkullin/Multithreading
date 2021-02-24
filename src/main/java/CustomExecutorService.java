@@ -30,7 +30,7 @@ public class CustomExecutorService {
             }
             return sum;
         } catch (InterruptedException | ExecutionException e) {
-            throw new RuntimeException("Can't invoke all threads");
+            throw new RuntimeException("Can't invoke all threads", e);
         }
     }
 }
